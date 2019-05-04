@@ -2,8 +2,7 @@ public class Rectangle {
     Vector2D rectanglePosition;
     double x, y;
     int height, width;
-
-
+    
     public Rectangle(double x, double y, int width, int height) {
         this(new Vector2D(x, y), width, height);
     }
