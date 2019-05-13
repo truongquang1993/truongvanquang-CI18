@@ -1,3 +1,5 @@
+package game;
+
 import javax.swing.plaf.synth.SynthTextAreaUI;
 
 public class KeyEventPress {

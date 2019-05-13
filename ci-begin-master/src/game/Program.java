@@ -1,3 +1,5 @@
+package game;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
@@ -58,7 +60,7 @@ public class Program {
         };
         window.addKeyListener(keyHandler);
 
-        panel.setBackground(new Color(255, 255, 255));
+        panel.setBackground(new Color(80, 204, 255));
         window.add(panel);
         window.pack();
 
