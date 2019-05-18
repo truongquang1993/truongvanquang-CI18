@@ -38,9 +38,9 @@ public class Vector2D {
         this.set(other.x, other.y);
     }
 
-    public Vector2D clone() {
-        return new Vector2D(this.x, this.y);
-    }
+//    public Vector2D clone() {
+//        return new Vector2D(this.x, this.y);
+//    }
 
     public double getLength() {
         return Math.sqrt(x * x + y * y);

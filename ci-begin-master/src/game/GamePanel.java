@@ -1,5 +1,7 @@
 package game;
 
+import game.enemy.Enemy;
+import game.enemy.EnemySummoner;
 import game.player.Player;
 
 import javax.swing.*;
@@ -8,14 +10,14 @@ import java.awt.*;
 public class GamePanel extends JPanel {
     Player player;
     Background background;
-    Enemy enemy;
+    //Enemy enemy;
 
 
 
     public GamePanel() {
         this.background = new Background();
         this.player = new Player();
-        this.enemy = new Enemy();
+        EnemySummoner es = new EnemySummoner();
 //        this.background.position.set(0,-2509);
     }
 
@@ -28,7 +30,9 @@ public class GamePanel extends JPanel {
                object.render(g);
            }
         }
-
+        // TODO: Continue editing
+        g.setColor(Color.CYAN);
+        g.fillRect(385,0,416,600);
 
     }
 
@@ -37,7 +41,7 @@ public class GamePanel extends JPanel {
         while (true) {
             long currentTime = System.currentTimeMillis(); // Cái này tùy từng máy
             //long currentTime = System.nanoTime(); //Nếu là nano s thì là 10^9
-            if (currentTime - lastTime > 1000 / 60) {
+            if (currentTime - lastTime > 1000/1001) {
                 // run logic
                 this.runAll();
             }
