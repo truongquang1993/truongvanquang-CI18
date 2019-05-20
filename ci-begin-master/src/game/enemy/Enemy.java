@@ -5,6 +5,7 @@ import game.KeyEventPress;
 import game.physics.BoxCollider;
 import game.player.Player;
 import game.player.PlayerBullet;
+import game.renderer.Renderer;
 import tklibs.SpriteUtils;
 
 public class Enemy extends GameObject {
@@ -15,10 +16,11 @@ public class Enemy extends GameObject {
         this.position.set(0,-50);
         velocity.set(0,1.5);
         velocity.setAngle(Math.toRadians(25));
-        this.image = SpriteUtils.loadImage("D:\\CI18\\ci-begin-master\\assets\\images\\enemies\\level0\\blue\\0.png");
+        //this.image = SpriteUtils.loadImage("D:\\CI18\\ci-begin-master\\assets\\images\\enemies\\level0\\blue\\0.png");
+        renderer = new Renderer("D:\\CI18\\ci-begin-master\\assets\\images\\enemies\\level0\\blue");
         hitBox = new BoxCollider(this, 28, 28);
         hp = 3;
-        damage = 2;
+        damage = 1;
     }
 
     public void takeDamage(int damage) {
@@ -30,7 +32,7 @@ public class Enemy extends GameObject {
     }
 
     private void checkPlayer(){
-        Player player = GameObject.findIntersects(Player.class,hitBox);
+        Player player = GameObject.findIntersects(Player.class,this.hitBox);
         if(player != null){
             player.takeDamage(damage);
             this.deactive();
@@ -40,15 +42,19 @@ public class Enemy extends GameObject {
     @Override
     public void run(){
         super.run();
+        this.move();
+        this.deactiveIfNeeded();
+        this.fire();
+        this.checkPlayer();
+    }
+
+    private void move() {
         if(this.onGoingRight() && this.outOfBoundRight()){
             this.reverseVelocityX();
         }
         if(this.onGoingLeft() && this.outOfBoundLeft()){
             this.reverseVelocityX();
         }
-        this.deactiveIfNeeded();
-        this.fire();
-        this.checkPlayer();
     }
 
     int count = 0;

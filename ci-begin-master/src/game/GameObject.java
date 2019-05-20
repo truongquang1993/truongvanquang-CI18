@@ -3,6 +3,7 @@ package game;
 import game.physics.BoxCollider;
 import game.player.Player;
 import game.player.PlayerBullet;
+import game.renderer.Renderer;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -60,7 +61,7 @@ public class GameObject  {
     }
 
     //Dinh nghia doi tuong
-    public BufferedImage image;
+    public Renderer renderer;
     public Vector2D position;
     public boolean active;
     public Vector2D velocity;
@@ -74,8 +75,11 @@ public class GameObject  {
     }
 
     public void render(Graphics g) {
-        if(image != null) {
-            g.drawImage(image, (int) position.x, (int) position.y, null);
+//        if(image != null) {
+//            g.drawImage(image, (int) position.x, (int) position.y, null);
+//        }
+        if(renderer != null){
+            renderer.render(g, this);
         }
     }
 

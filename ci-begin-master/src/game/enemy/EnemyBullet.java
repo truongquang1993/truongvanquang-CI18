@@ -4,6 +4,7 @@ import game.GameObject;
 import game.Vector2D;
 import game.physics.BoxCollider;
 import game.player.Player;
+import game.renderer.Renderer;
 import tklibs.SpriteUtils;
 
 public class EnemyBullet extends GameObject {
@@ -11,7 +12,8 @@ public class EnemyBullet extends GameObject {
 
     public EnemyBullet(){
         this.position = new Vector2D();
-        this.image = SpriteUtils.loadImage("D:\\CI18\\ci-begin-master\\assets\\images\\enemies\\bullets\\yellow.png");
+        //this.image = SpriteUtils.loadImage("D:\\CI18\\ci-begin-master\\assets\\images\\enemies\\bullets\\yellow.png");
+        renderer = new Renderer("D:\\CI18\\ci-begin-master\\assets\\images\\enemies\\bullets");
         this.velocity.set(0,2);
         hitBox = new BoxCollider(this, 16, 16);
         damage =1;

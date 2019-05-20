@@ -4,6 +4,7 @@ import game.GameObject;
 import game.Vector2D;
 import game.enemy.Enemy;
 import game.physics.BoxCollider;
+import game.renderer.Renderer;
 import tklibs.SpriteUtils;
 
 import javax.swing.*;
@@ -15,11 +16,14 @@ public class PlayerBullet extends GameObject {
 
     public PlayerBullet(){
         this.position = new Vector2D();
-        this.image = SpriteUtils.loadImage("D:\\CI18\\ci-begin-master\\assets\\images\\player-bullets\\a\\1.png");
+        //this.image = SpriteUtils.loadImage("D:\\CI18\\ci-begin-master\\assets\\images\\player-bullets\\a\\1.png");
+        renderer = new Renderer("D:\\CI18\\ci-begin-master\\assets\\images\\player-bullets\\a");
         this.velocity.set(0,-3);
         hitBox = new BoxCollider(this, 24, 24);
         damage =1;
     }
+
+
 
     @Override
     public void run() {
